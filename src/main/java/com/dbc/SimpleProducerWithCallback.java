@@ -20,7 +20,7 @@ public class SimpleProducerWithCallback {
         // Set up client Java properties
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "172.25.38.193:6667");
+                "");
         props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
                 StringSerializer.class.getName());
         props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,

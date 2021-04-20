@@ -17,13 +17,13 @@ public class SimpleProducer {
         // Set up client Java properties
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "host1:9092,host2:9092,host3:9092");
+                "");
         props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
                 StringSerializer.class.getName());
         props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
                 StringSerializer.class.getName());
         props.setProperty(ProducerConfig.ACKS_CONFIG, "1");
-
+//send data
         try (KafkaProducer<String, String> producer = new KafkaProducer<>(props)) {
             for (long i = 0; i < total; i++) {
                 String key = Long.toString(ufoId++);

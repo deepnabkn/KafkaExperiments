@@ -1,13 +1,13 @@
 package com.dbc;
 
-import java.util.Arrays;
-import java.util.Properties;
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+
+import java.util.Arrays;
+import java.util.Properties;
 
 public class SimpleConsumer {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class SimpleConsumer {
         // Set up client Java properties
         Properties props = new Properties();
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "172.25.38.195:6667");
+                "");
         // Just a user-defined string to identify the consumer group
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         // Enable auto offset commit
@@ -25,12 +25,13 @@ public class SimpleConsumer {
                 StringDeserializer.class.getName());
         props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class.getName());
-
+        //Create consumer
         try (KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props)) {
             // List of topics to subscribe to
-            consumer.subscribe(Arrays.asList("ufo_sightings"));
+            consumer.subscribe(Arrays.asList("twitter_tweets"));
             while (true) {
                 try {
+                    //Poll for new data
                     ConsumerRecords<String, String> records = consumer.poll(100);
                     for (ConsumerRecord<String, String> record : records) {
                         System.out.printf("Offset = %d\n", record.offset());

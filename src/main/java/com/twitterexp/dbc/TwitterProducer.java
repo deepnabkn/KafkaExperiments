@@ -26,10 +26,10 @@ public class TwitterProducer {
     Logger logger = LoggerFactory.getLogger(TwitterProducer.class.getName());
 
     // use your own credentials - don't share them with anyone
-    String consumerKey = "1qmoctFNnZr5hOcoIMff1viPk";
-    String consumerSecret = "AaGlZcfZLC6KfppIoMg5NrWJBRYWSsKgxiEijU4TmkbHrG9tNJ";
-    String token = "113643972-4FlsiPNEUIo8jmfbfrCjRIczVQ0uFKm0wmhSFKVG";
-    String secret = "QXa1VTzumb5BWl2r8bnVF8soiy1tutjdjt9pjvneqbMQ8";
+    String consumerKey = "";
+    String consumerSecret = "";
+    String token = "";
+    String secret = "";
 
     List<String> terms = Lists.newArrayList("bitcoin", "usa", "politics", "sport", "soccer");
 
@@ -113,7 +113,7 @@ public class TwitterProducer {
     }
 
     public KafkaProducer<String, String> createKafkaProducer(){
-        String bootstrapServers = "172.25.37.194:6667";
+        String bootstrapServers = "";
 
         // create Producer properties
         Properties properties = new Properties();

@@ -15,7 +15,7 @@ public class SimpleConsumerWithThread {
         // Set up client Java properties
         Properties props = new Properties();
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "172.25.38.195:6667");
+                "");
         // Just a user-defined string to identify the consumer group
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         // Enable auto offset commit

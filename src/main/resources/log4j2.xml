@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="ERROR">
+<Configuration status="INFO"">
     <Appenders>
         <Console name="stdout" target="SYSTEM_OUT">
             <PatternLayout pattern="[%d] (%c) - %p %m %n"/>
         </Console>
     </Appenders>
     <Loggers>
-        <Root level="error">
+        <Root level="INFO">
             <AppenderRef ref="stdout"/>
         </Root>
         <Logger name="org.apache.kafka.clients" level="warn" additivity="false">
